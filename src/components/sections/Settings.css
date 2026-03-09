@@ -1,0 +1,21 @@
+.settings-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.settings-back { background: none; border: none; color: var(--text-muted); font-size: 14px; cursor: pointer; padding: 0; transition: color var(--t-fast); }
+.settings-back:hover { color: var(--text); }
+.settings-title { font-family: var(--font-display); font-size: 28px; letter-spacing: 2px; }
+
+.settings-card { margin-bottom: 14px; }
+.settings-card-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 14px; }
+.settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 14px; color: var(--text-soft); }
+.settings-row:last-child { border-bottom: none; }
+.settings-row strong { color: var(--text); }
+
+.settings-mod-list { display: flex; flex-wrap: wrap; gap: 4px; }
+
+.txt-ok   { color: var(--lime); font-size: 13px; }
+.txt-warn { color: var(--coral-light); font-size: 13px; }
+
+.settings-setup-card { background: rgba(181,217,34,0.04); border-color: rgba(181,217,34,0.2); }
+.settings-setup-text { font-size: 14px; color: var(--text-soft); margin-bottom: 14px; line-height: 1.5; }
+.settings-setup-steps { padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
+.settings-setup-steps li { font-size: 13px; color: var(--text-soft); line-height: 1.5; }
+.settings-setup-steps code { background: var(--glass-2); border: 1px solid var(--border); border-radius: var(--r-xs); padding: 1px 6px; font-family: var(--font-mono); font-size: 12px; color: var(--lime); }

@@ -1,0 +1,165 @@
+/* ═══════════════════════════════════════════════════════════
+   FUTEVÔLEI MANAGER — Design System
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Fonts ──────────────────────────────────────────────────── */
+/* Bebas Neue: display/titles   |   DM Sans: body   |   Space Mono: numbers */
+
+/* ── Tokens ─────────────────────────────────────────────────── */
+:root {
+  /* Palette */
+  --sand:           #F5E6C8;
+  --ocean:          #0A4D6E;
+  --ocean-mid:      #0D6E9A;
+  --ocean-light:    #1B9CC4;
+  --ocean-pale:     rgba(27,156,196,0.15);
+  --coral:          #E85D3A;
+  --coral-light:    #FF7A5C;
+  --coral-pale:     rgba(232,93,58,0.15);
+  --lime:           #B5D922;
+  --lime-bright:    #D4F233;
+  --lime-pale:      rgba(181,217,34,0.14);
+
+  /* Backgrounds */
+  --dark:           #080F1C;
+  --dark-2:         #0A1628;
+  --dark-3:         #0D1F38;
+  --dark-4:         #102440;
+
+  /* Text */
+  --text:           #F0EDE5;
+  --text-soft:      #C8D0DC;
+  --text-muted:     #7A8EA8;
+  --text-dim:       #4A5E78;
+
+  /* Glass */
+  --glass:          rgba(255,255,255,0.045);
+  --glass-2:        rgba(255,255,255,0.07);
+  --glass-hover:    rgba(255,255,255,0.075);
+  --border:         rgba(255,255,255,0.08);
+  --border-2:       rgba(255,255,255,0.13);
+
+  /* Radii */
+  --r-xs:  6px;
+  --r-sm:  10px;
+  --r-md:  14px;
+  --r-lg:  20px;
+  --r-xl:  26px;
+  --r-2xl: 34px;
+  --r-pill: 100px;
+
+  /* Typography */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'Space Mono', monospace;
+
+  /* Shadows */
+  --shadow-sm:    0 2px 8px rgba(0,0,0,0.25);
+  --shadow-md:    0 4px 20px rgba(0,0,0,0.35);
+  --shadow-lg:    0 8px 40px rgba(0,0,0,0.5);
+  --glow-ocean:   0 0 40px rgba(27,156,196,0.22);
+  --glow-coral:   0 0 40px rgba(232,93,58,0.22);
+  --glow-lime:    0 0 40px rgba(181,217,34,0.18);
+
+  /* Motion */
+  --ease:         cubic-bezier(0.4,0,0.2,1);
+  --ease-out:     cubic-bezier(0,0,0.2,1);
+  --ease-spring:  cubic-bezier(0.34,1.56,0.64,1);
+  --t-fast:       0.15s;
+  --t-base:       0.22s;
+  --t-slow:       0.4s;
+}
+
+/* ── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  background: var(--dark);
+  color: var(--text);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img, video { max-width: 100%; display: block; }
+input, select, textarea, button { font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; }
+ul, ol { list-style: none; }
+
+/* ── Ambient background ─────────────────────────────────────── */
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 65% 55% at 12% 8%,  rgba(13,110,154,0.24) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 65% at 88% 88%,  rgba(232,93,58,0.13) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 40% at 50% 105%, rgba(181,217,34,0.07) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar          { width: 5px; height: 5px; }
+::-webkit-scrollbar-track    { background: transparent; }
+::-webkit-scrollbar-thumb    { background: var(--border-2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Typography scale ───────────────────────────────────────── */
+h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 1px; line-height: 1.1; }
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.93); } to { opacity: 1; transform: none; } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
+@keyframes pulse   { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+@keyframes spin    { to { transform: rotate(360deg); } }
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+
+.anim-fadeUp   { animation: fadeUp   var(--t-slow) var(--ease) both; }
+.anim-fadeIn   { animation: fadeIn   var(--t-base) var(--ease) both; }
+.anim-scaleIn  { animation: scaleIn  var(--t-base) var(--ease-spring) both; }
+
+/* Stagger children */
+.stagger > *:nth-child(1)  { animation-delay: 0.04s; }
+.stagger > *:nth-child(2)  { animation-delay: 0.09s; }
+.stagger > *:nth-child(3)  { animation-delay: 0.14s; }
+.stagger > *:nth-child(4)  { animation-delay: 0.19s; }
+.stagger > *:nth-child(5)  { animation-delay: 0.24s; }
+.stagger > *:nth-child(6)  { animation-delay: 0.29s; }
+.stagger > *:nth-child(7)  { animation-delay: 0.34s; }
+.stagger > *:nth-child(8)  { animation-delay: 0.39s; }
+.stagger > *:nth-child(n+9){ animation-delay: 0.44s; }
+
+/* ── Skeleton loading ───────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg,
+    var(--glass) 25%,
+    var(--glass-2) 50%,
+    var(--glass) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--r-sm);
+}
+
+/* ── Utility ─────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); border:0;
+}
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.visually-hidden { visibility: hidden; }
+
+/* Safe area padding for iOS notch */
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0); }

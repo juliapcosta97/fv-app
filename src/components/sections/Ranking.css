@@ -1,0 +1,58 @@
+/* ── Shared page styles ─────────────────────────────────────── */
+.page-section { position: relative; z-index: 1; }
+
+.txt-lime  { color: var(--lime);  font-weight: 700; }
+.txt-coral { color: var(--coral); }
+
+/* ── Ranking list ───────────────────────────────────────────── */
+.ranking-list { list-style: none; }
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.042);
+  transition: padding-left var(--t-base) var(--ease);
+}
+.ranking-item:last-child { border-bottom: none; }
+.ranking-item:hover { padding-left: 6px; }
+
+.rank-pos {
+  width: 38px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.rank-num { font-size: 18px; color: var(--text-muted); }
+
+.rank-info { flex: 1; min-width: 0; }
+.rank-name {
+  font-weight: 600;
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rank-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  flex-wrap: wrap;
+}
+.rank-modality {
+  background: var(--glass-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: 1px 8px;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+.rank-right { text-align: right; flex-shrink: 0; }
+.rank-points { font-family: var(--font-mono); font-size: 18px; font-weight: 700; color: var(--lime); line-height: 1; }
+.rank-pts-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.rank-record { display: flex; gap: 6px; justify-content: flex-end; margin-top: 4px; font-size: 12px; }
